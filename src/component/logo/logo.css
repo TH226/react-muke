@@ -1,0 +1,11 @@
+.logo-container{
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 20px;   
+   
+}
+.logo-img{
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+}
