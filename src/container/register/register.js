@@ -3,6 +3,7 @@ import Logo from '../../component/logo/logo'
 import {List,InputItem,WingBlank,WhiteSpace,Button,Radio} from 'antd-mobile'
 import {connect} from 'react-redux'
 import {register} from '../../redux/user.redux'
+import {Redirect} from  'react-router-dom'
 import '../../index.css'
 
 @connect(
@@ -19,10 +20,14 @@ class Register extends React.Component{
             type:'genius',
         }
         this.handleRegister = this.handleRegister.bind(this)
+        this.login = this.login.bind(this);
+    }
+    login(){
+        this.props.history.push('/login')
     }
     handleRegister(){
         this.props.register(this.state)
-        // console.log(this.state);
+        console.log(this.state);
     }
     handleChange(key,val){
         this.setState({
@@ -33,6 +38,7 @@ class Register extends React.Component{
         const RadioItem = Radio.RadioItem
         return (
             <div>
+                {this.props.redirectTo?<Redirect to={this.props.redirectTo}></Redirect>:null}
                 <Logo></Logo>
                 <WingBlank>
                     <List>
@@ -40,15 +46,17 @@ class Register extends React.Component{
                         <InputItem onChange={v=>this.handleChange('user',v)}>用户名</InputItem>
                         <InputItem onChange={v=>this.handleChange('pwd',v)} type="password">密码</InputItem>
                         <InputItem onChange={v=>this.handleChange('repeatpwd',v)} type="password">确认密码</InputItem>
-                        <RadioItem onChange={()=>this.handleChange('type','genius')} checked={this.state.type=='genius'}>
+                        <RadioItem onChange={()=>this.handleChange('type','genius')} checked={this.state.type==='genius'}>
                             牛人
                         </RadioItem>
-                        <RadioItem onChange={()=>this.handleChange('type','boss')} checked={this.state.type=='boss'}>
+                        <RadioItem onChange={()=>this.handleChange('type','boss')} checked={this.state.type==='boss'}>
                             boss
                         </RadioItem>
                     </List>
                     <WhiteSpace/>
                     <Button type="primary" onClick={this.handleRegister}>注册</Button>
+                    <WhiteSpace/>
+                    <Button type="primary" onClick={this.login}>登录</Button>
                     <WhiteSpace/>
                 </WingBlank>
             </div>

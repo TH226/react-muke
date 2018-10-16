@@ -15,8 +15,10 @@
     "babel-plugin-named-asset-import": "^0.2.2",
     "babel-preset-react-app": "^5.0.3",
     "bfj": "6.1.1",
+    "body-parser": "^1.18.3",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.1",
+    "cookie-parser": "^1.4.3",
     "css-loader": "1.0.0",
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
@@ -56,6 +58,7 @@
     "style-loader": "0.23.0",
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1",
+    "utility": "^1.15.0",
     "webpack": "4.19.1",
     "webpack-dev-server": "3.1.9",
     "webpack-manifest-plugin": "2.0.4",
@@ -122,11 +125,17 @@
           "legacy": true
         }
       ],
-      ["import", { "libraryName": "antd-mobile", "style": "css" }]
+      [
+        "import",
+        {
+          "libraryName": "antd-mobile",
+          "style": "css"
+        }
+      ]
     ]
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy":"http://localhost:9093"
+  "proxy": "http://localhost:9093"
 }
