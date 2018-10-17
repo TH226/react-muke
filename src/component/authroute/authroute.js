@@ -22,12 +22,12 @@ class AuthRoute extends React.Component{
             if(res.status===200){
                 //过滤用户，code为1的表示没登录，自动跳转到login页面
                 if(res.data.code===0){
-                    console.log("authroute--->user/info-->data",res.data.data);
+                    // console.log("authroute--->user/info-->data",res.data.data);
                     this.props.loadData(res.data.data)
                 }else{
                     this.props.history.push('/login')
                 }
-                console.log(res.data);
+                // console.log(res.data);
             }
         })
         //用户状态：是否登陆 

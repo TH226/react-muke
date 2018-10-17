@@ -1,4 +1,23 @@
 .error-msg{
-    color: red;
-    padding-left: 20px;
+	color:#f50;
+	padding-left:10px;
+	padding-top:10px;
+}
+
+.am-tab-bar{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+.fixd-header.am-navbar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.page-content{
+	padding:45px 5px;
+}
+.am-card-header-content img{
+	width: 25px;
+	height: 25px;
 }
