@@ -5,13 +5,12 @@ import {Switch,Route} from 'react-router-dom'
 import NavLinkBar from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
+import UserCenter from '../usercenter/usercenter'
 //此页面负责对主页面的拼接
 function Msg(){
     return <h2>Msg</h2>
 }
-function User(){
-    return <h2>User</h2>
-}
+
 
 @connect(
     state=> state
@@ -49,7 +48,7 @@ class Dashboard extends React.Component{
                 text:'我的',
                 icon:'user',
                 title:'个人中心',
-                component:User,
+                component:UserCenter,
             }
         ]
         return (
@@ -63,7 +62,10 @@ class Dashboard extends React.Component{
                         ))}
                     </Switch>
                 </div>
-                <NavLinkBar data={navList}></NavLinkBar>
+                <div className="fixd-footer">
+                     <NavLinkBar data={navList}></NavLinkBar>
+                </div>
+               
             </div>
         )
     }

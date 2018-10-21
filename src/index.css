@@ -3,12 +3,12 @@
 	padding-left:10px;
 	padding-top:10px;
 }
-
-.am-tab-bar{
+.fixd-footer{
 	position: fixed;
 	bottom: 0;
 	width: 100%;
 }
+
 .fixd-header.am-navbar{
 	position: fixed;
 	top: 0;
