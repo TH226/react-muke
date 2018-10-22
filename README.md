@@ -6,6 +6,10 @@
 
 > react项目实战三 登录注册页面与数据库连接 https://blog.csdn.net/TH226/article/details/83185921
 
+> react项目实战四 主页面开发以及boss和genius页面的开发 https://blog.csdn.net/TH226/article/details/83269646
+
+> react项目实战五 个人中心页面 https://blog.csdn.net/TH226/article/details/83270675
+
 ### 说明一下：
 - first commit 第一次提交，代码中完成了登录注册页面的实现、跳转功能，但是未与数据库连接
 - second commit 第二次提交：代码中完成了登录注册与数据库的连接
