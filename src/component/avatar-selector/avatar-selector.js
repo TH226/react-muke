@@ -1,7 +1,7 @@
 import React from 'react'
 import {Grid, List} from 'antd-mobile'
 import PropTypes from 'prop-types'
-
+//用户信息完善的头像选择
 class AvatarSelector extends React.Component{
     //属性检测，判断传递的属性类型是否正确
     static propTypes = {

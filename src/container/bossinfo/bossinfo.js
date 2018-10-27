@@ -24,9 +24,11 @@ class BossInfo extends React.Component{
     render(){
         const path = this.props.location.pathname
         const redirect = this.props.redirectTo
+        console.log(path);
+        
         return (
             <div>
-                {redirect&&redirect!==path?<Redirect to='/boss'/>:null}
+                {redirect?<Redirect to='/boss'/>:null}
                  <NavBar mode="dark">BOSS完善信息页面</NavBar>
                  <AvatarSelector selectavatar = {(imagname)=>{
                      this.setState({

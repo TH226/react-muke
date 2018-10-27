@@ -2,9 +2,12 @@ const express = require('express')
 const Router = express.Router()
 const model = require('./model')
 const User = model.getModel('user')
+const Chat = model.getModel('chat')
 const utils = require('utility')
 const _filter = {'pwd':0,'__v':0}
 //用户相关的
+
+// Chat.remove({},function(err,doc){})
 
 Router.get('/list',function(req,res){
     const {type} = req.query
@@ -13,7 +16,40 @@ Router.get('/list',function(req,res){
         return res.json({code:0,data:doc})
     })
 })
-
+Router.get('/getmsglist',function(req,res){
+    const user = req.cookies.userid
+    //先查询到所有的消息列表
+    User.find({},function(e,userdoc){
+        let users = {}
+        userdoc.forEach(v=>{
+            //获取用户的名称和头像
+            users[v._id] = {name:v.user,avatar:v.avatar}
+        })
+        //查询出当前用户所有的发出和收到的信息
+        Chat.find({'$or':[{from:user},{to:user}]},function(err,doc){
+            if(!err){
+                return res.json({code:0,msgs:doc,users:users})
+            }
+        })
+    })
+})
+//将未读信息修改为已读
+Router.post('/readmsg',function(req,res){
+    const userid = req.cookies.userid
+    const {from} = req.body
+    Chat.update(
+        {from,to:userid},
+        {'$set':{read:true}},
+        {'multi':true},
+        function(err,doc){
+            console.log("user-->readmsg",doc)
+            if(!err){
+                return res.json({code:0,num:doc.nModified})
+            }
+            return res.json({code:1,msg:'修改失败'})
+        }
+    )
+})
 Router.get('/info',function(req,res){
     const {userid} = req.cookies
     if(!userid){

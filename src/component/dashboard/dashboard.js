@@ -6,17 +6,23 @@ import NavLinkBar from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
 import UserCenter from '../usercenter/usercenter'
+import Msg from '../msg/msg'
+import {getMsgList,recvMsg} from '../../redux/chat.redux'
 //此页面负责对主页面的拼接
-function Msg(){
-    return <h2>Msg</h2>
-}
-
 
 @connect(
-    state=> state
+    state=> state,
+    {getMsgList,recvMsg}
 )
 class Dashboard extends React.Component{
+    componentDidMount(){
+        if(!this.props.chat.chatmsg.length){
+            this.props.getMsgList()
+            this.props.recvMsg()
+        }
+    }
     render(){
+        // console.log("dashboard-->props-->render内",this.props);
         const {pathname} = this.props.location
         const user = this.props.user
         const navList = [

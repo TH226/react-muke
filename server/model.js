@@ -17,8 +17,18 @@ const models = {
         'company':{'type':String},
         'money':{'type':String}
     },
-    char:{
-
+    chat:{
+        //两个人建立的聊天连接的id
+        'chatid':{'type':String,require:true},
+        //聊天信息的发送人和接受人
+        'from':{'type':String,require:true},
+        'to':{'type':String,'require':true},
+        //信息是否已读
+        'read':{'type':Boolean,'default':false},
+        //聊天内容
+        'content':{'type':String,'require':true,'default':''},
+        //信息发送时间
+        'create_time':{'type':Number,'default':Date.now}
     }
 }
 //创建所有对象的数据映射
